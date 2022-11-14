@@ -5,7 +5,7 @@ import Reports from './components/Reports';
 import BillValidation from './components/BillValidation';
 import CostForecast from './components/CostForecast';
 import Sidebar from './components/Sidebar';
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 const App: React.FunctionComponent = () => {
   
@@ -13,12 +13,12 @@ const App: React.FunctionComponent = () => {
     <>
       <Router>
         <Sidebar />
-        <Routes>
+        <Switch>
           <Route path='/' element={<Dashboard />} />
           <Route path='/reports' element={<Reports />} />            
           <Route path='/billvalidation' element={<BillValidation />} />    
           <Route path='/costforecast' element={<CostForecast />} />
-        </Routes>
+        </Switch>
       </Router> 
     </>
   )
