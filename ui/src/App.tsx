@@ -1,15 +1,27 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import Users from './components/dashboard/Users';
+import Dashboard from './components/Dashboard';
+import Reports from './components/Reports';
+import BillValidation from './components/BillValidation';
+import CostForecast from './components/CostForecast';
+import Sidebar from './components/Sidebar';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-function App() {
+const App: React.FunctionComponent = () => {
+  
   return (
-    <div className="App">
-      <h1>All Users</h1>
-      <Users />
-    </div>
-  );
+    <>
+      <Router>
+        <Sidebar />
+        <Routes>
+          <Route path='/' element={<Dashboard />} />
+          <Route path='/reports' element={<Reports />} />            
+          <Route path='/billvalidation' element={<BillValidation />} />    
+          <Route path='/costforecast' element={<CostForecast />} />
+        </Routes>
+      </Router> 
+    </>
+  )
 }
 
 export default App;
