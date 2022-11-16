@@ -5,7 +5,7 @@ export const SidebarData = [
     {
         title: 'Dashboard',
         path: '/',
-        icon: <FaIcons.FaChartArea size='32'/>
+        icon: <FaIcons.FaChartArea size='35'/>
     },
     {
         title: 'Bill Validation',
@@ -15,7 +15,7 @@ export const SidebarData = [
     {
         title: 'Reports',
         path: '/reports',
-        icon: <FaIcons.FaScroll size='30' />
+        icon: <FaIcons.FaScroll size='35' />
     },
     {
         title: 'Cost Forecast',

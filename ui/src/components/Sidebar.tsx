@@ -8,14 +8,6 @@ import { useState } from 'react'
 
 import styled from 'styled-components'
 
-const Navbar = styled.div`
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    height: 3.5rem;
-    background-color: #417285;
-`
-
 const CollapsedSideBar = styled.div`
     width: 100px;
     height: 100vh;
@@ -32,6 +24,7 @@ const MenuIconOpen = styled(Link)`
     font-size: 2.5rem;
     margin-left: 1.85rem;
     margin-top: 0.75rem;
+    margin-bottom: 3rem;
     color: #ffffff;
 
 `
@@ -42,6 +35,7 @@ const MenuIconClose = styled(Link)`
     font-size: 2.5rem;
     margin-top: 0.75rem;
     margin-right: 1rem;
+    margin-bottom: 3rem;
     color: #ffffff;
 `
 
@@ -107,9 +101,9 @@ const Sidebar: React.FunctionComponent = () => {
     const showSidebar = () => setClose(!close)
     return (
         <>
-            <CollapsedSideBar>
+            <CollapsedSideBar data-testid="collapsedSideBar">
             
-            <MenuIconOpen to="#" onClick={showSidebar}>
+            <MenuIconOpen data-testid="menuIconOpen" to="#" onClick={showSidebar}>
                     <FaIcons.FaBars />
                 </MenuIconOpen>
             
@@ -126,8 +120,13 @@ const Sidebar: React.FunctionComponent = () => {
 
             </CollapsedSideBar>
 
-            <SidebarMenu close={close}>
-                <MenuIconClose to="#" onClick={showSidebar}>
+            <SidebarMenu data-testid="sidebarMenu" close={close}>
+
+                <image>
+                    
+                </image>
+
+                <MenuIconClose data-testid="menuIconClose" to="#" onClick={showSidebar}>
                     <FaIcons.FaTimes />
                 </MenuIconClose>
 
