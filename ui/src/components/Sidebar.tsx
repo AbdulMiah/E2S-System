@@ -8,6 +8,8 @@ import { useState } from 'react'
 
 import styled from 'styled-components'
 
+import logo from './../assets/images/Cardiff_University_logo.png'
+
 const CollapsedSideBar = styled.div`
     width: 100px;
     height: 100vh;
@@ -24,19 +26,25 @@ const MenuIconOpen = styled(Link)`
     font-size: 2.5rem;
     margin-left: 1.85rem;
     margin-top: 0.75rem;
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
     color: #ffffff;
 
 `
 
 const MenuIconClose = styled(Link)`
-    display: flex;
-    justify-content: end;
     font-size: 2.5rem;
-    margin-top: 0.75rem;
-    margin-right: 1rem;
-    margin-bottom: 3rem;
     color: #ffffff;
+    margin-left: 6.5rem;
+`
+
+const TopSideBarClose = styled.div`
+display: flex;
+// justify-content: end;
+margin-left: 2rem;
+font-size: 2.5rem;
+margin-top: 0.75rem;
+margin-right: 1rem;
+color: #ffffff;
 `
 
 const SidebarMenu = styled.div<{close: boolean}>`
@@ -96,6 +104,8 @@ const CollapsedMenuItemLinks = styled(Link)`
     }
 `
 
+const ImageLink = styled(Link)``
+
 const Sidebar: React.FunctionComponent = () => {
     const [close, setClose] = useState(false)
     const showSidebar = () => setClose(!close)
@@ -122,13 +132,17 @@ const Sidebar: React.FunctionComponent = () => {
 
             <SidebarMenu data-testid="sidebarMenu" close={close}>
 
-                <image>
-                    
-                </image>
+                <TopSideBarClose>
+                
+                <ImageLink to={'/'} >
+                <img width={50} height={50} src={logo} alt="logo" />
+                </ImageLink>
 
                 <MenuIconClose data-testid="menuIconClose" to="#" onClick={showSidebar}>
                     <FaIcons.FaTimes />
                 </MenuIconClose>
+
+                </TopSideBarClose>
 
                 {SidebarData.map((item, index) => {
                     return (
