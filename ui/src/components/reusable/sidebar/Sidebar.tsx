@@ -8,7 +8,7 @@ import { useState } from 'react'
 
 import styled from 'styled-components'
 
-import logo from './../assets/images/Cardiff_University_logo.png'
+import logo from './../../../assets/images/Cardiff_University_logo.png'
 
 //css in this file due to custom headings with links
 

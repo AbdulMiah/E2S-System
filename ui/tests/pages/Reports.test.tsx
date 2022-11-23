@@ -1,7 +1,7 @@
 import React from 'react'
 import '@testing-library/jest-dom'
 import { render, screen, cleanup, fireEvent } from '@testing-library/react'
-import Reports from '../src/components/Reports'
+import Reports from '../../src/components/pages/Reports'
 
 
 test('should render reports title element', () => {

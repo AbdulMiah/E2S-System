@@ -1,10 +1,10 @@
 import React from 'react';
 import './App.css';
-import Dashboard from './components/Dashboard';
-import Reports from './components/Reports';
-import BillValidation from './components/BillValidation';
-import CostForecast from './components/CostForecast';
-import Sidebar from './components/Sidebar';
+import Dashboard from './components/pages/Dashboard';
+import Reports from './components/pages/Reports';
+import BillValidation from './components/pages/BillValidation';
+import CostForecast from './components/pages/CostForecast';
+import Sidebar from './components/reusable/sidebar/Sidebar';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import './App.css';
 import Topbar from './components/reusable/topbar/Topbar';

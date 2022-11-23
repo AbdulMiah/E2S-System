@@ -33,12 +33,11 @@ function AccountDropdown({ name }: AccountDropdownProps) {
 
   return (
     <Container data-testid="dropdownButton" id="hoverContainer" onMouseEnter={showDropdown} onMouseLeave={hideDropdown}>
-    <DropdownButton 
+    <DropdownButton
       data-testid="dropdownMenu"
       id="dropdown-basic-button" 
       title={<span><span id="userIcon"><FaUserAlt /></span> <span data-testid="accountName">{name}</span></span>}
-      //received errors when below was in it, commenting out did not change the website appearance.
-      // show={show}
+      show={show}
       size="sm">
       <Dropdown.Item data-testid="settingsDropdown" id="settingsDropdown" href="#"><span id="settingsIcon"><FaCog /></span>  SETTINGS</Dropdown.Item>
       <Dropdown.Item data-testid="signOutDropdown" id="signOutDropdown" href="#"><span id="signOutIcon"><FaSignOutAlt /></span>  SIGN OUT</Dropdown.Item>

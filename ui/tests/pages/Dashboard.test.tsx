@@ -1,7 +1,7 @@
 import React from 'react'
 import '@testing-library/jest-dom'
 import { render, screen, cleanup, fireEvent } from '@testing-library/react'
-import Dashboard from '../src/components/Dashboard'
+import Dashboard from '../src/components/pages/Dashboard'
 
 
 test('should render dashboard title element', () => {

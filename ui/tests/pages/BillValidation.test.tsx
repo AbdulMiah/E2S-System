@@ -1,7 +1,7 @@
 import React from 'react'
 import '@testing-library/jest-dom'
 import { render, screen, cleanup, fireEvent } from '@testing-library/react'
-import BillValidation from '../src/components/BillValidation'
+import BillValidation from '../src/components/pages/BillValidation'
 
 
 test('should render billvalidation title element', () => {
