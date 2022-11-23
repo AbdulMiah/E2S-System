@@ -27,7 +27,7 @@ const MenuIconOpen = styled(Link)`
     justify-content: start;
     font-size: 2.5rem;
     margin-left: 1.85rem;
-    margin-top: 0.75rem;
+    margin-top: 1.25rem;
     margin-bottom: 1rem;
     color: #ffffff;
 
@@ -46,6 +46,7 @@ margin-left: 2rem;
 font-size: 2.5rem;
 margin-top: 0.75rem;
 margin-right: 1rem;
+margin-bottom: 1rem;
 color: #ffffff;
 `
 
@@ -155,7 +156,7 @@ const Sidebar: React.FunctionComponent = () => {
                         <MenuItems key={index}>
                             <MenuItemLinks to={item.path}>
                                 {item.icon}
-                                <h1 style={{marginLeft: '16px'}}>{item.title}</h1>
+                                <h1 id="sidebarHeadings" >{item.title}</h1>
                             </MenuItemLinks>
                         </MenuItems>
                     )
