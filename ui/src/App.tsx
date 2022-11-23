@@ -6,6 +6,8 @@ import BillValidation from './components/BillValidation';
 import CostForecast from './components/CostForecast';
 import Sidebar from './components/Sidebar';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import './App.css';
+import Topbar from './components/reusable/topbar/Topbar';
 
 const App: React.FunctionComponent = () => {
   
@@ -13,6 +15,10 @@ const App: React.FunctionComponent = () => {
   //This file should only have the topbar and sidebar
   return (
     <>
+      <div className="App">
+         <Topbar />
+      </div>
+
       <Router>
         <Sidebar />
         <Routes>
@@ -23,7 +29,9 @@ const App: React.FunctionComponent = () => {
         </Routes>
       </Router> 
     </>
-  )
+  );
+
+  
 }
 
 export default App;
