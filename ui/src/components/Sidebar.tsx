@@ -10,6 +10,8 @@ import styled from 'styled-components'
 
 import logo from './../assets/images/Cardiff_University_logo.png'
 
+//css in this file due to custom headings with links
+
 const CollapsedSideBar = styled.div`
     width: 100px;
     height: 100vh;
@@ -111,6 +113,8 @@ const Sidebar: React.FunctionComponent = () => {
     const showSidebar = () => setClose(!close)
     return (
         <>
+
+            {/*The collapsed sidebar which only shows the icons*/}
             <CollapsedSideBar data-testid="collapsedSideBar">
             
             <MenuIconOpen data-testid="menuIconOpen" to="#" onClick={showSidebar}>
@@ -130,10 +134,12 @@ const Sidebar: React.FunctionComponent = () => {
 
             </CollapsedSideBar>
 
+            {/*The expanded sidebar which shows the icons, text and picture*/}
             <SidebarMenu data-testid="sidebarMenu" close={close}>
 
                 <TopSideBarClose>
                 
+                {/* Image placed inside ui/src so that it is accessible */}
                 <ImageLink to={'/'} >
                 <img width={50} height={50} src={logo} alt="logo" />
                 </ImageLink>

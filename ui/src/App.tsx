@@ -9,6 +9,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 const App: React.FunctionComponent = () => {
   
+  //Defines the paths of each page
+  //This file should only have the topbar and sidebar
   return (
     <>
       <Router>
