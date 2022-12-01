@@ -35,6 +35,7 @@ api build:
     # - npm publish #--registry=--registry=https://gitlab.com/api/v4/packages/npm/
     # - echo "This is a build job for ui"
     # - npm run build
+    - npm config set registry https://git.cardiff.ac.uk/api/v4/packages/npm/
     - npm i @c2061455/api
   only:
     - cicd
