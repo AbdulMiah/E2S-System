@@ -37,8 +37,6 @@ api build:
     # - npm run build
   only:
     - cicd
-  tags:
-    - npm
   artifacts:
     paths:
       - .npmrc
