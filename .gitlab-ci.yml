@@ -25,7 +25,7 @@ api build:
         export NPMRC_INSTALL_URL=$(echo "$NPMRC_URL/packages/npm/:_authToken=$GITLAB_TOKEN")
         # export NPMRC_PUBLISH_URL=$(echo "$NPMRC_URL/projects/$CI_PROJECT_ID/packages/npm/:_authToken=$GITLAB_TOKEN")
         export NPM_SCOPE=$(echo "$CI_PROJECT_PATH" | sed 's/[/].*$//')
-        echo "@$NPM_SCOPE:registry=$NPM_REGISTRY_PATHS/npm/" >> .npmrc
+        # echo "@$NPM_SCOPE:registry=$NPM_REGISTRY_PATHS/npm/" >> .npmrc
         echo "$NPMRC_INSTALL_URL" >> .npmrc
         # echo "$NPMRC_PUBLISH_URL" >> .npmrc
       fi
