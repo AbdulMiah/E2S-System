@@ -35,6 +35,6 @@
     "dist"
   ],
   "publishConfig": {
-    "@c2061455:registry": "https://gitlab.com/api/v4/projects/13046/packages/npm/"
+    "@c2061455:registry": "https://git.cardiff.ac.uk/api/v4/projects/13046/packages/npm/"
   }
 }
