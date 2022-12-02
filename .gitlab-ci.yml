@@ -1,8 +1,46 @@
 image: node:latest
 
 stages:
-  - build
-  - test
+  - Builds
+  - Unit Tests
+
+api unit tests:
+  stage: Unit Tests
+  script:
+    - echo "Changing directory to api/"
+    - cd api/ 
+    - pwd
+
+    - echo "Installing dependencies for api/"
+    - npm i
+
+    - echo "Running Unit Tests for api/"
+    # Create variable to find all test files exluding test files in data/
+    - testFiles=$(find tests/ -mindepth 1 ! -regex '^tests/data\(/.*\)?' -type f)
+    - echo $testFiles
+    - npm test $testFiles
+    - echo "Tests All Passed!"
+  only:
+    - cicd
+
+ui unit tests:
+  stage: Unit Tests
+  script:
+    - echo "Changing directory to ui/"
+    - cd ui/
+    - pwd
+
+    - echo "Installing dependencies for ui/"
+    - npm i
+
+    - echo "Running Unit Tests for ui/"
+    - npm test
+    - echo "Tests All Passed!"
+  only:
+    - cicd
+
+
+
 
 # api build:create_npmrc:
 #   stage: test
@@ -37,26 +75,3 @@ stages:
 #   artifacts:
 #     paths:
 #       - .npmrc
-
-ui unit tests:
-  stage: test
-  script:
-    - echo "This is a test job for ui/"
-    - cd ui/ 
-    - pwd
-    - npm i
-    - npm test
-  only:
-    - cicd
-
-api unit tests:
-  stage: test
-  script:
-    - echo "This is a test job for api/"
-    - cd api/ 
-    - pwd
-    - npm i
-    - npm test readlink -f controllers/
-    - npm test readlink -f services/
-  only:
-    - cicd
