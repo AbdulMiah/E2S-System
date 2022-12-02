@@ -31,8 +31,8 @@ api build:
     #   fi
 
     # - echo "//${CI_SERVER_HOST}/api/v4/projects/${CI_PROJECT_ID}/packages/npm/:_authToken=${CI_JOB_TOKEN}">.npmrc
-    - echo "//git.cardiff.ac.uk/api/v4/packages/npm/:_authToken=$GITLAB_TOKEN" >>.npmrc
-    - echo "@$CI_PROJECT_PATH:registry=https://git.cardiff.ac.uk/api/v4/packages/npm/" >> .npmrc
+    - echo "@c2061455:registry=https://git.cardiff.ac.uk/api/v4/packages/npm/" >> .npmrc
+    - echo "//git.cardiff.ac.uk/api/v4/packages/npm/:_authToken=$GITLAB_TOKEN" >> .npmrc
     # - npm publish #--registry=--registry=https://gitlab.com/api/v4/packages/npm/
     # - echo "This is a build job for ui"
     # - npm run build
