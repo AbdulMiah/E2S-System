@@ -2,12 +2,12 @@ image: node:latest
 
 stages:
   - build
-  # - test
+  - test
 
 api build:create_npmrc:
-  stage: build
+  stage: test
   script:
-    - cd ui/
+    - cd api/
     - pwd
 
     - |
@@ -31,7 +31,7 @@ api build:create_npmrc:
     # - npm config set registry https://git.cardiff.ac.uk/api/v4/packages/npm/
 
     - npm i #@c2061455/api
-    - npm test
+    - npm test readlink -f tests/
   only:
     - cicd
   artifacts:
