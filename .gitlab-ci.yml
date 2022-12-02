@@ -56,6 +56,7 @@ api unit tests:
     - cd api/ 
     - pwd
     - npm i
-    - npm test readlink -f tests/
+    - npm test readlink -f controllers/
+    - npm test readlink -f services/
   only:
     - cicd
