@@ -4,74 +4,61 @@ stages:
   - Builds
   - Unit Tests
 
-api unit tests:
-  stage: Unit Tests
-  script:
+api build:
+  stage: Builds
+  before_script:
     - echo "Changing directory to api/"
     - cd api/ 
     - pwd
 
     - echo "Installing dependencies for api/"
     - npm i
+  script:
+    - echo "Running build for api/"
+    - npm run build
+    - echo "API build was Successful!"
 
+ui build:
+  stage: Builds
+  before_script:
+    - echo "Changing directory to ui/"
+    - cd ui/ 
+    - pwd
+
+    - echo "Installing dependencies for ui/"
+    - npm i
+  script:
+    - echo "Running build for ui/"
+    - npm run build
+    - echo "UI build was Successful!"
+
+api unit tests:
+  stage: Unit Tests
+  before_script:
+    - echo "Changing directory to api/"
+    - cd api/ 
+    - pwd
+
+    - echo "Installing dependencies for api/"
+    - npm i
+  script:
     - echo "Running Unit Tests for api/"
     # Create variable to find all test files exluding test files in data/
     - testFiles=$(find tests/ -mindepth 1 ! -regex '^tests/data\(/.*\)?' -type f)
     - echo $testFiles
     - npm test $testFiles
-    - echo "Tests All Passed!"
-  only:
-    - cicd
+    - echo "All Tests Passed!"
 
 ui unit tests:
   stage: Unit Tests
-  script:
+  before_script:
     - echo "Changing directory to ui/"
     - cd ui/
     - pwd
 
     - echo "Installing dependencies for ui/"
     - npm i
-
+  script:
     - echo "Running Unit Tests for ui/"
     - npm test
-    - echo "Tests All Passed!"
-  only:
-    - cicd
-
-
-
-
-# api build:create_npmrc:
-#   stage: test
-#   script:
-#     - cd api/
-#     - pwd
-
-#     - |
-#       if  [ ! -f .npmrc ]; then echo .npmrc missing. Creating one now.
-#         export NPM_PROJECT_URL=$(echo "$CI_PROJECT_URL" | sed "s/${CI_PROJECT_PATH//\//\\/}/api\/v4/g")
-#         export NPM_REGISTRY_PATHS=$(echo "$CI_PROJECT_URL" | sed "s/${CI_PROJECT_PATH//\//\\/}/api\/v4/g")
-#         export NPMRC_URL=$(echo "$NPM_REGISTRY_PATHS" | sed 's/[^:]*[:]//')
-#         export NPMRC_INSTALL_URL=$(echo "$NPMRC_URL/packages/npm/:_authToken=$GITLAB_TOKEN")
-#         export NPMRC_PUBLISH_URL=$(echo "$NPMRC_URL/projects/$CI_PROJECT_ID/packages/npm/:_authToken=$GITLAB_TOKEN")
-#         export NPM_SCOPE=$(echo "$CI_PROJECT_PATH" | sed 's/[/].*$//')
-#         echo "@$NPM_SCOPE:registry=$NPM_REGISTRY_PATHS/packages/npm/" >> .npmrc
-#         echo "$NPMRC_INSTALL_URL" >> .npmrc
-#         echo "$NPMRC_PUBLISH_URL" >> .npmrc
-#       fi
-
-#     - cat .npmrc
-#     # - echo "//${CI_SERVER_HOST}/api/v4/projects/${CI_PROJECT_ID}/packages/npm/:_authToken=${CI_JOB_TOKEN}">.npmrc
-#     # - echo "@c2061455:registry=https://git.cardiff.ac.uk/api/v4/packages/npm/" >> .npmrc
-#     # - echo "//git.cardiff.ac.uk/api/v4/packages/npm/:_authToken=$GITLAB_TOKEN" >> .npmrc
-
-#     # - npm config set registry https://git.cardiff.ac.uk/api/v4/packages/npm/
-
-#     - npm i #@c2061455/api
-#     # - npm test readlink -f tests/
-#   only:
-#     - cicd
-#   artifacts:
-#     paths:
-#       - .npmrc
+    - echo "All Tests Passed!"
