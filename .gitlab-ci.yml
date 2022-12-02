@@ -7,7 +7,7 @@ stages:
 api build:create_npmrc:
   stage: build
   script:
-    - cd api/
+    - cd ui/
     - pwd
 
     - |
@@ -28,10 +28,10 @@ api build:create_npmrc:
     # - echo "@c2061455:registry=https://git.cardiff.ac.uk/api/v4/packages/npm/" >> .npmrc
     # - echo "//git.cardiff.ac.uk/api/v4/packages/npm/:_authToken=$GITLAB_TOKEN" >> .npmrc
 
-    # - npm run build
     # - npm config set registry https://git.cardiff.ac.uk/api/v4/packages/npm/
 
     - npm i #@c2061455/api
+    # - npm run build
   only:
     - cicd
   artifacts:
