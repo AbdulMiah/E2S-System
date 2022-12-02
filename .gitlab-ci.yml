@@ -58,5 +58,6 @@ api unit tests:
     - npm i
     - npm test readlink -f controllers/
     - npm test readlink -f services/
+    - npm test find tests/ –maxdepth 1 –type f
   only:
     - cicd
