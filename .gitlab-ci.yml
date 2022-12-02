@@ -41,24 +41,28 @@ stages:
 api unit tests:
   stage: Unit Tests
   script:
-    - echo "This is a test job for api/"
+    - echo "Changing directory to api/"
     - cd api/ 
     - pwd
+
+    - echo "Installing dependencies for api/"
     - npm i
+
+    - echo "Running Unit Tests for api/"
+    - npm test find tests/ -maxdepth 1 ! –type d
     - npm test readlink -f controllers/
     - npm test readlink -f services/
-    - npm test find tests/ –maxdepth 1 –type f
   only:
     - cicd
 
-ui unit tests:
-  stage: Unit Tests
-  script:
-    - echo "This is a test job for ui/"
-    - cd ui/ 
-    - pwd
-    - npm i
-    - npm test
-  only:
-    - cicd
+# ui unit tests:
+#   stage: Unit Tests
+#   script:
+#     - echo "This is a test job for ui/"
+#     - cd ui/ 
+#     - pwd
+#     - npm i
+#     - npm test
+#   only:
+#     - cicd
 
