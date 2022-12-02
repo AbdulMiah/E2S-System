@@ -31,7 +31,7 @@ api build:create_npmrc:
     # - npm run build
     # - npm config set registry https://git.cardiff.ac.uk/api/v4/packages/npm/
 
-    - npm i @c2061455%2fapi
+    - npm i #@c2061455/api
   only:
     - cicd
   artifacts:
