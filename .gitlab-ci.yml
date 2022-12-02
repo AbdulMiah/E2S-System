@@ -39,7 +39,7 @@ api build:
     # - npm run build
     # - echo "@c2061455:registry=https://git.cardiff.ac.uk/api/v4/packages/npm/ //git.cardiff.ac.uk/api/v4/packages/npm/:_authToken=$GITLAB_TOKEN" > .npmrc
     # - npm config set registry https://git.cardiff.ac.uk/api/v4/packages/npm/
-    - npm login
+    - npm whoami
     - npm i @c2061455/api
   only:
     - cicd
