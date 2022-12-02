@@ -52,7 +52,11 @@ api unit tests:
     # - npm test find tests/ -maxdepth 1 -type f
     # - npm test find controllers/ -maxdepth 1 -type f
     # - npm test find services/ -maxdepth 1 -type f
-    - npm test find tests/ -mindepth 1 ! -regex '^tests/data\(/.*\)?' -type f
+    # - npm test find tests/ -mindepth 1 ! -regex '^tests/data\(/.*\)?' -type f
+
+    - testFiles=$(find tests/ -mindepth 1 ! -regex '^tests/data\(/.*\)?' -type f)
+    - echo $testFiles
+    - npm test $testFiles
   only:
     - cicd
 
